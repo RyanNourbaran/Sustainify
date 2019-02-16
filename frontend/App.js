@@ -9,6 +9,7 @@ import {
 import Camera from "./src/screens/Camera";
 import Main from "./src/screens/Main";
 import MySustain from "./src/screens/MySustain";
+import Results from "./src/screens/Results";
 
 const TabNavigator = createBottomTabNavigator(
   {
@@ -61,7 +62,9 @@ export default createAppContainer(
     {
       Tab: TabNavigator,
       Main: Main,
-      Camera: Camera
+      Camera: Camera,
+      Results,
+      MySustain: MySustain
     },
     {
       initialRouteName: "Tab"

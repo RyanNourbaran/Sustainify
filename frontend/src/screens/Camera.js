@@ -7,7 +7,8 @@ import {
   Text
 } from "react-native";
 import { RNCamera } from "react-native-camera";
-import { Header, Button, Icon, Left, Right, Content } from "native-base";
+import { Header, Button, Left, Right, Content } from "native-base";
+import Icon from "react-native-vector-icons/MaterialIcons";
 import axios from "axios";
 
 const styles = StyleSheet.create({
@@ -35,18 +36,13 @@ export default class Camera extends Component {
     };
   }
 
-  componentDidMount = () => {
-    setTimeout(() => {
-      this.takePicture();
-    }, 1000);
-  };
-
   flash = () => {
     this.setState({ inactive: !this.state.inactive });
   };
 
   renderCamera() {
-    const isFocused = true; //this.props.navigation.isFocused();
+    console.log("its renderCamera");
+    const isFocused = this.props.navigation.isFocused();
     if (isFocused) {
       return (
         <View style={styles.container}>
@@ -66,6 +62,7 @@ export default class Camera extends Component {
             permissionDialogMessage={
               "We need your permission to use your camera phone"
             }
+            captureAudio={false}
           >
             <View
               style={{
@@ -81,10 +78,10 @@ export default class Camera extends Component {
                       onPress={() => this.props.navigation.navigate("Tab")}
                     >
                       <Icon
-                        name="ios-close"
+                        name="close"
                         style={{
                           color: "white",
-                          fontSize: 60,
+                          fontSize: 40,
                           fontWeight: 900
                         }}
                       />
@@ -93,14 +90,13 @@ export default class Camera extends Component {
                   <Right>
                     <Button style={styles.button} onPress={() => this.flash()}>
                       <Icon
-                        name={
-                          this.state.inactive ? "ios-flash" : "ios-flash-off"
-                        }
+                        name={this.state.inactive ? "flash-on" : "flash-off"}
                         style={{
                           color: "white",
-                          fontSize: 40,
+                          fontSize: 32,
                           fontWeight: "normal"
                         }}
+                        type="Ionicons"
                       />
                     </Button>
                   </Right>
@@ -116,16 +112,25 @@ export default class Camera extends Component {
   }
 
   takePicture = async function() {
+    console.log("smell");
     if (this.camera) {
       const options = { quality: 0.5, base64: true };
       const data = await this.camera.takePictureAsync(options);
       //console.log(data.base64);
-
       this.passBlob(data);
     }
   };
 
+  componentDidMount = () => {
+    setTimeout(() => {
+      this.takePicture();
+    }, 1000);
+  };
+
   passBlob(blob) {
+    console.log("blobby");
+    console.log(blob);
+    const materials = [];
     const formData = new FormData();
     formData.append("image", {
       uri: blob.uri,
@@ -134,7 +139,7 @@ export default class Camera extends Component {
     });
     axios({
       method: "post",
-      url: "http://sustainify.azurewebsites.net/classify",
+      url: "http://sustainify1.appspot.com/classify",
       mode: "cors",
       headers: {
         "Access-Control-Allow-Origin": true,
@@ -143,12 +148,22 @@ export default class Camera extends Component {
       data: formData
     })
       .then(response => {
-        console.log(response);
-        console.log("a2@@@@@");
+        const responseArray = response.data.predictions;
+        console.log(responseArray);
+        for (let i = 0; i < responseArray.length; i++) {
+          let item = responseArray[i];
+          console.log(item);
+          if (item.probability > 0.4) {
+            materials.push(item.tagName);
+          }
+        }
+        console.log(materials);
+        this.props.navigation.navigate("Results", { materials });
       })
       .catch(error => {
         console.log(error);
       });
+    console.log("end");
   }
 
   render() {

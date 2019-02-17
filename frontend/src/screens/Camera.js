@@ -157,6 +157,7 @@ export default class Camera extends Component {
             materials.push(item.tagName);
           }
         }
+
         //if (materials.length > 0) {
         this.props.navigation.navigate("Results", { materials });
         //} else {

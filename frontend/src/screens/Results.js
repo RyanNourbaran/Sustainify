@@ -1,18 +1,22 @@
 import React, { Component } from "react";
 import { View, StyleSheet } from "react-native";
 import { apiKey } from "../assets/apiKey";
-import { Button } from "native-base";
 import LinearGradient from "react-native-linear-gradient";
 
 import {
   Container,
   Header,
-  Content,
+  Title,
   Card,
   CardItem,
   Text,
   Body,
-  Icon
+  Icon,
+  Button,
+  Left,
+  Right,
+  List,
+  ListItem
 } from "native-base";
 //import Icon from "react-native-vector-icons/FontAwesome5";
 import axios from "axios";
@@ -24,11 +28,16 @@ export default class Results extends Component {
       material: [
         {
           name: "Plastic",
-          instructions: "these are instructions @@@ @@@ @@@ @@@"
+          type: "Recycle Bin",
+          instructions: [
+            "these are instructions @@@ @@@ @@@ @@@",
+            "more instructions"
+          ]
         },
         {
           name: "Cardboard",
-          instructions: "these are instructions @@@ @@@ @@@ @@@"
+          type: "Electronic Waste",
+          instructions: ["these are instructions @@@ @@@ @@@ @@@"]
         }
       ]
     };
@@ -46,7 +55,7 @@ export default class Results extends Component {
     })
       .then(response => {
         const materialArray = this.props.navigation.state.params.materials;
-        console.log(materialArray);
+        console.log("@@@@" + materialArray);
         let newMaterials = [];
         let descriptions = response.data;
         for (let i = 0; i < materialArray.length; i++) {
@@ -57,7 +66,8 @@ export default class Results extends Component {
               console.log(obj.instructions);
               newMaterials.push({
                 name: obj.name,
-                instructions: obj.instructions
+                instructions: obj.instructions,
+                type: obj.type
               });
             }
           });
@@ -72,38 +82,100 @@ export default class Results extends Component {
 
   render() {
     return (
-      <View style={{ flex: 1 }}>
-        <LinearGradient
-          colors={["#56ab2f", "#a8e063"]}
-          start={{ x: 0, y: 1 }}
-          end={{ x: 1, y: 0 }}
-          style={styles.container}
-        >
-          <Text style={styles.header}>Identified Materials</Text>
-
-          {this.state.material.map((obj, i) => {
-            console.log(iconMap, obj.name, iconMap[obj.name]);
+      <Container>
+        <Header style={{ backgroundColor: "#198e63" }}>
+          <Left>
+            <Button
+              transparent
+              onPress={() => this.props.navigation.navigate("Camera")}
+            >
+              <Icon
+                name="arrow-back"
+                style={{ color: "white", fontSize: 25 }}
+              />
+            </Button>
+          </Left>
+          <Body>
+            <Title style={{ color: "white", fontWeight: "500" }}>
+              Material
+            </Title>
+          </Body>
+          <Right>
+            <Button
+              transparent
+              onPress={() => this.props.navigation.navigate("Tab")}
+            >
+              <Icon
+                name="home"
+                type="SimpleLineIcons"
+                style={{ color: "white", fontSize: 20 }}
+              />
+            </Button>
+          </Right>
+        </Header>
+        <View style={styles.container}>
+          {this.state.material.map((el, i) => {
+            console.log(iconMap, el.type, iconMap[el.type]);
             return (
-              <View style={styles.itemContainer} key={obj.name + i}>
+              <View style={styles.itemContainer} key={el.name + i}>
                 <Card>
-                  <CardItem header bordered>
-                    <Icon
-                      type="FontAwesome5"
-                      name={iconMap[obj.name] || "social-dropbox"}
+                  <CardItem
+                    header
+                    bordered
+                    style={{
+                      backgroundColor: "#77BA99",
+                      height: 60,
+                      marginBottom: 10
+                    }}
+                  >
+                    <View
                       style={{
-                        color: "green",
-                        fontSize: 30
+                        flexDirection: "row",
+                        alignItems: "center",
+                        justifyContent: "center",
+
+                        backgroundColor: "white",
+                        borderColor: colorMap[el.type] || "black",
+                        borderWidth: 3,
+                        height: 80,
+                        width: 80,
+                        borderRadius: 40,
+                        marginRight: 15
                       }}
-                    />
-                    <Text>{obj.name}</Text>
+                    >
+                      <Icon
+                        type="MaterialCommunityIcons"
+                        name={iconMap[el.type] || "delete"}
+                        style={{
+                          color: colorMap[el.type] || "black",
+                          fontSize: 45,
+
+                          width: "60%"
+                        }}
+                      />
+                    </View>
+                    <Text
+                      style={{
+                        color: "white",
+                        fontSize: 18,
+                        fontWeight: "700"
+                      }}
+                    >
+                      {el.name}
+                    </Text>
                   </CardItem>
-                  <CardItem bordered>
+                  <CardItem>
                     <Body>
-                      <Text>{obj.instructions}</Text>
+                      <List>
+                        {el.instructions.map((instruct, i) => {
+                          return (
+                            <ListItem>
+                              <Text>{i + 1 + ". " + instruct}</Text>
+                            </ListItem>
+                          );
+                        })}
+                      </List>
                     </Body>
-                  </CardItem>
-                  <CardItem footer bordered>
-                    <Text>GeekyAnts</Text>
                   </CardItem>
                 </Card>
                 {/* <View style={styles.title}>
@@ -124,41 +196,29 @@ export default class Results extends Component {
               </View>
             );
           })}
-          <View style={styles.navButtons}>
-            <Button
-              onPress={() => this.props.navigation.navigate("Tab")}
-              style={styles.button}
-            >
-              <Icon name="home" style={styles.icon} />
-            </Button>
-            <Button
-              onPress={() => this.props.navigation.navigate("Camera")}
-              style={styles.button}
-            >
-              <Icon name="camera" style={styles.icon} />
-            </Button>
-          </View>
-        </LinearGradient>
-      </View>
+        </View>
+      </Container>
     );
   }
 }
 const iconMap = {
-  Cardboard: "dropbox",
-  Plastic: "shopping-bag"
+  "Recycle Bin": "recycle",
+  "Garbage Bin": "delete",
+  "Compost Bin": "delete",
+  "Electronic Waste": "power-plug"
+};
+const colorMap = {
+  "Recycle Bin": "#4285F4",
+  "Garbage Bin": "black",
+  "Compost Bin": "#0F9D58",
+  "Electronic Waste": "#F4B400"
 };
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: "column",
-    justifyContent: "space-between",
+    justifyContent: "flex-start",
     alignItems: "center"
-  },
-  header: {
-    fontSize: 40,
-    fontWeight: "500",
-    justifyContent: "center",
-    margin: 15
   },
   itemContainer: {
     width: "100%",
@@ -195,9 +255,5 @@ const styles = StyleSheet.create({
     height: 90,
     width: 90,
     borderRadius: 45
-  },
-  icon: {
-    color: "rgb(0, 146, 83)",
-    fontSize: 70
   }
 });

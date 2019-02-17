@@ -153,8 +153,9 @@ export default class Results extends Component {
               onPress={() => this.props.navigation.navigate("Camera")}
             >
               <Icon
-                name="arrow-back"
-                style={{ color: "white", fontSize: 33 }}
+                type="EvilIcons"
+                name="camera"
+                style={{ color: "white", fontSize: 36, paddingTop: 4 }}
               />
             </Button>
           </Left>

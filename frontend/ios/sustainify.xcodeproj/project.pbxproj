@@ -330,6 +330,13 @@
 			remoteGlobalIDString = 64AA15081EF7F30100718508;
 			remoteInfo = "BVLinearGradient-tvOS";
 		};
+		957BE8ED2219A86F00625545 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
+			remoteInfo = sustainify;
+		};
 		9583352F22139BE8003419D3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
@@ -845,6 +852,7 @@
 			);
 			dependencies = (
 				2D02E4921E0B4A5D006451C7 /* PBXTargetDependency */,
+				957BE8EE2219A86F00625545 /* PBXTargetDependency */,
 			);
 			name = "sustainify-tvOSTests";
 			productName = "sustainify-tvOSTests";
@@ -881,7 +889,7 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 9JW7UXZ24J;
 						ProvisioningStyle = Automatic;
-						TestTargetID = 2D02E47A1E0B4A5D006451C7;
+						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 				};
 			};
@@ -1407,6 +1415,11 @@
 			target = 2D02E47A1E0B4A5D006451C7 /* sustainify-tvOS */;
 			targetProxy = 2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */;
 		};
+		957BE8EE2219A86F00625545 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 13B07F861A680F5B00A75B9A /* sustainify */;
+			targetProxy = 957BE8ED2219A86F00625545 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -1651,7 +1664,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.sustainify-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/sustainify-tvOS.app/sustainify-tvOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/sustainify.app/sustainify";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 			};
 			name = Debug;
@@ -1689,7 +1702,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.sustainify-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/sustainify-tvOS.app/sustainify-tvOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/sustainify.app/sustainify";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 			};
 			name = Release;

@@ -23,12 +23,11 @@ const cards = [
   {
     text: "Card One",
     name: "One",
-    image: require("./logo.png")
+    image: require("./tip.png")
   },
   {
     text: "Card 2",
-    name: "One",
-    image: require("./logo.png")
+    name: "One"
   }
 ];
 
@@ -60,28 +59,46 @@ export default class componentName extends Component {
           <Text style={styles.title}>SUSTAINIFY</Text>
         </View>
         <View>
-          <Text>Tips</Text>
-        </View>
-        <View>
           <DeckSwiper
             dataSource={cards}
             renderItem={item => (
-              <Card style={{ elevation: 3 }}>
-                <CardItem>
+              <Card
+                style={{
+                  elevation: 3,
+                  height: 200,
+                  bottom: 100,
+                  width: "95%",
+                  alignSelf: "center"
+                }}
+              >
+                <CardItem
+                  header
+                  bordered
+                  style={{ backgroundColor: "#eff0d1" }}
+                >
                   <Left>
-                    <Thumbnail source={item.image} />
-                    <Body>
-                      <Text>{item.text}</Text>
-                      <Text note>NativeBase</Text>
-                    </Body>
+                    <Thumbnail
+                      source={item.image}
+                      style={{ height: 65, paddingRight: 10 }}
+                    />
+                    <Text
+                      style={{
+                        fontFamily: "Roboto",
+                        fontSize: 30,
+                        fontWeight: "600"
+                      }}
+                    >
+                      Tip
+                    </Text>
                   </Left>
                 </CardItem>
-                <CardItem cardBody>
-                  <Image style={{ height: 300, flex: 1 }} source={item.image} />
-                </CardItem>
                 <CardItem>
-                  <Icon name="heart" style={{ color: "#ED4A6A" }} />
-                  <Text>{item.name}</Text>
+                  <Body>
+                    <Text style={{ fontSize: 18 }}>
+                      Recycled tires can be made into fuel, rubberized asphalt,
+                      construction materials and more
+                    </Text>
+                  </Body>
                 </CardItem>
               </Card>
             )}
@@ -97,7 +114,7 @@ export default class componentName extends Component {
             </Text>
           </View>
           <View>
-            <Button onPress={this.next} style={styles.button}>
+            <Button onPress={this.search} style={styles.button}>
               <Icon name="search" style={styles.icon} />
             </Button>
             <Text style={{ textAlign: "center", padding: 15, color: "white" }}>
@@ -125,7 +142,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-evenly",
     alignItems: "flex-end",
-    top: 50
+    top: 80
   },
   title: {
     fontFamily: "AvenirNextCondensed-Medium",

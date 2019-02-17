@@ -26,17 +26,16 @@ export default class Results extends Component {
     this.state = {
       material: [
         {
-          name: "Plastic",
-          type: "Recycle Bin",
+          name: "Coffee Cup",
+          type: "Garbage Bin",
           instructions: [
-            "these are instructions @@@ @@@ @@@ @@@",
-            "more instructions"
+            "Place item in the Garbage Bin.\n \nNote: Some disposable coffee cups come with an internal plastic lining that makes them non-recyclable."
           ]
         },
         {
-          name: "Cardboard",
-          type: "Electronic Waste",
-          instructions: ["these are instructions @@@ @@@ @@@ @@@"]
+          name: "Coffee Lid",
+          type: "Recycle Bin",
+          instructions: ["Dispose this item in the Recycle Bin."]
         }
       ]
     };
@@ -96,14 +95,14 @@ export default class Results extends Component {
             >
               <Icon
                 name="arrow-back"
-                style={{ color: "white", fontSize: 25 }}
+                style={{ color: "white", fontSize: 33 }}
               />
             </Button>
           </Left>
           <Body>
-            <Title style={{ color: "white", fontWeight: "500" }}>
-              Material
-            </Title>
+            <Text style={{ color: "white", fontWeight: "500", fontSize: 30 }}>
+              Materials
+            </Text>
           </Body>
           <Right>
             <Button
@@ -113,7 +112,7 @@ export default class Results extends Component {
               <Icon
                 name="home"
                 type="SimpleLineIcons"
-                style={{ color: "white", fontSize: 20 }}
+                style={{ color: "white", fontSize: 23 }}
               />
             </Button>
           </Right>

@@ -1,2 +1,4 @@
 node_modules
 frontend/src/assets/apiKey.js
+
+.DS_Store

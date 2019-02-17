@@ -2,17 +2,13 @@ import React, { Component } from "react";
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import {
   Container,
-  Header,
-  Title,
-  Card,
-  CardItem,
-  Body,
-  Icon,
   Button,
-  Left,
+  Icon,
   Right,
-  List,
-  ListItem
+  Switch,
+  ListItem,
+  Left,
+  Body
 } from "native-base";
 import LinearGradient from "react-native-linear-gradient";
 
@@ -35,19 +31,104 @@ export default class MySustain extends Component {
           />
           <View style={styles.body}>
             <View style={styles.bodyContent}>
-              <Text style={styles.name}>John Doe</Text>
-              <Text style={styles.info}>UX Designer / Mobile developer</Text>
-              <Text style={styles.description}>
-                Lorem ipsum dolor sit amet, saepe sapientem eu nam. Qui ne assum
-                electram expetendis, omittam deseruisse consequuntur ius an,
-              </Text>
-
-              <TouchableOpacity style={styles.buttonContainer}>
-                <Text>Opcion 1</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.buttonContainer}>
-                <Text>Opcion 2</Text>
-              </TouchableOpacity>
+              <Text style={styles.name}>Jack Dorsey</Text>
+              <Text style={styles.info}>New York, New York, USA</Text>
+              <ListItem style={styles.listItems} icon>
+                <Left>
+                  <Button
+                    style={{
+                      width: 50,
+                      height: 60,
+                      backgroundColor: "#FF9501"
+                    }}
+                  >
+                    <Icon
+                      active
+                      style={{ fontSize: 40 }}
+                      type="Foundation"
+                      name="lightbulb"
+                    />
+                  </Button>
+                </Left>
+                <Body>
+                  <Text style={styles.bodyText}>Energy Saved:</Text>
+                </Body>
+                <Right>
+                  <Text style={[styles.bodyText]}>64 Kwh </Text>
+                </Right>
+              </ListItem>
+              <ListItem style={styles.listItems} icon>
+                <Left>
+                  <Button
+                    style={{ width: 50, height: 60, backgroundColor: "grey" }}
+                  >
+                    <Icon
+                      active
+                      style={{ fontSize: 30 }}
+                      type="FontAwesome5"
+                      name="city"
+                    />
+                  </Button>
+                </Left>
+                <Body>
+                  <Text style={styles.bodyText}>Pollution Stopped:</Text>
+                </Body>
+                <Right>
+                  <Text style={[styles.bodyText]}>3.6 lbs</Text>
+                </Right>
+              </ListItem>
+              <ListItem style={styles.listItems} icon>
+                <Left>
+                  <Button
+                    style={{ width: 50, height: 60, backgroundColor: "blue" }}
+                  >
+                    <Icon
+                      active
+                      style={{ fontSize: 40 }}
+                      type="Ionicons"
+                      name="ios-water"
+                    />
+                  </Button>
+                </Left>
+                <Body style={styles.bodyText}>
+                  <Text style={styles.bodyText}>Water Saved:</Text>
+                </Body>
+                <Right>
+                  <Text style={[styles.bodyText]}>397 Gal.</Text>
+                </Right>
+              </ListItem>
+              <View style={{ flexDirection: "row", alignSelf: "center" }}>
+                <Icon
+                  active
+                  style={{ fontSize: 50, color: "gold" }}
+                  type="FontAwesome"
+                  name="star"
+                />
+                <Icon
+                  active
+                  style={{ fontSize: 50, color: "gold" }}
+                  type="FontAwesome"
+                  name="star"
+                />
+                <Icon
+                  active
+                  style={{ fontSize: 50, color: "gold" }}
+                  type="FontAwesome"
+                  name="star"
+                />
+                <Icon
+                  active
+                  style={{ fontSize: 50, color: "gold" }}
+                  type="FontAwesome"
+                  name="star"
+                />
+                <Icon
+                  active
+                  style={{ fontSize: 50, color: "gold" }}
+                  type="FontAwesome"
+                  name="star-o"
+                />
+              </View>
             </View>
           </View>
         </LinearGradient>
@@ -58,7 +139,7 @@ export default class MySustain extends Component {
 
 const styles = StyleSheet.create({
   header: {
-    backgroundColor: "#00BFFF",
+    backgroundColor: "#efefe7",
     height: 200
   },
   avatar: {
@@ -72,22 +153,17 @@ const styles = StyleSheet.create({
     position: "absolute",
     marginTop: 130
   },
-  name: {
-    fontSize: 22,
-    color: "#FFFFFF",
-    fontWeight: "600"
-  },
-  body: {
-    marginTop: 40
-  },
+  body: { flex: 1, marginTop: 40 },
   bodyContent: {
     flex: 1,
+    justifyContent: "flex-start",
     alignItems: "center",
-    padding: 30
+    padding: 30,
+    fontSize: 28
   },
   name: {
     fontSize: 28,
-    color: "#696969",
+    color: "#efefe7",
     fontWeight: "600"
   },
   info: {
@@ -111,5 +187,16 @@ const styles = StyleSheet.create({
     width: 250,
     borderRadius: 30,
     backgroundColor: "#00BFFF"
+  },
+  bodyText: {
+    fontSize: 24,
+    flexWrap: "wrap",
+    color: "#efefe7"
+  },
+  listItems: {
+    justifyContent: "space-between",
+    alignItems: "stretch",
+    width: "100%",
+    margin: 20
   }
 });

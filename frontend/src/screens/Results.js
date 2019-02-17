@@ -19,6 +19,7 @@ import {
 } from "native-base";
 //import Icon from "react-native-vector-icons/FontAwesome5";
 import axios from "axios";
+import geolib from "geolib";
 
 export default class Results extends Component {
   constructor(props) {
@@ -42,8 +43,6 @@ export default class Results extends Component {
     };
   }
   componentDidMount = () => {
-    console.log("KKKKKKK");
-
     axios({
       method: "get",
       url:
@@ -57,18 +56,12 @@ export default class Results extends Component {
     })
       .then(response => {
         const materialArray = this.props.navigation.state.params.materials;
-        console.log("@@@@");
-
-        console.log(materialArray);
 
         let newMaterials = [];
         let descriptions = response.data;
         for (let i = 0; i < materialArray.length; i++) {
           descriptions.forEach(obj => {
-            console.log(obj.name.toLowerCase(), materialArray[i]);
-
             if (obj.name.toLowerCase() === materialArray[i].toLowerCase()) {
-              console.log(obj.instructions);
               newMaterials.push({
                 name: obj.name,
                 instructions: obj.instructions,
@@ -78,13 +71,60 @@ export default class Results extends Component {
           });
         }
         this.setState({ material: newMaterials });
-        console.log(newMaterials);
+        this.getClosestBin();
       })
       .catch(error => {
         console.log(error);
       });
   };
+  getClosestBin = () => {
+    axios({
+      method: "get",
+      url: "https://data.cityofnewyork.us/resource/sxx4-xhzg.json",
 
+      headers: {
+        "Content-Type": "application/json",
+        "X-App-Token": "CnqGyJ5m8eLaxapX8QKfU8Je3"
+      }
+    })
+      .then(res => {
+        navigator.geolocation.setRNConfiguration({
+          skipPermissionRequests: false
+        });
+
+        navigator.geolocation.getCurrentPosition(
+          data => {
+            let min = Number.MAX_SAFE_INTEGER;
+            let minLoc = {};
+            for (let i = 0; i < res.data.length; i++) {
+              const loc = res.data[i];
+
+              let x = geolib.getDistance(
+                {
+                  latitude: data.coords.latitude,
+                  longitude: data.coords.longitude
+                },
+                {
+                  latitude: loc.latitude || 0,
+                  longitude: loc.longitude || 0
+                },
+                5
+              );
+
+              if (x < min) {
+                min = x;
+                minLoc = loc;
+              }
+            }
+            console.log(minLoc);
+          },
+          err => {
+            console.log(typeof err);
+          }
+        );
+      })
+      .catch(err => console.log(typeof err));
+  };
   render() {
     return (
       <Container style={{ backgroundColor: "#efefe7" }}>
@@ -120,7 +160,6 @@ export default class Results extends Component {
         </Header>
         <View style={styles.container}>
           {this.state.material.map((el, i) => {
-            console.log(iconMap, el.type, iconMap[el.type]);
             return (
               <View style={styles.itemContainer} key={el.name + i}>
                 <Card>

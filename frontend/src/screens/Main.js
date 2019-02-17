@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Text, StyleSheet, Image } from "react-native";
+import { Text, StyleSheet, Image, ImageBackground } from "react-native";
 import {
   Buttonimport,
   Container,
@@ -27,12 +27,18 @@ export default class componentName extends Component {
 
   giveImage = () => (
     <View style={{ flex: 1 }}>
-      <LinearGradient colors={["#1D976C", "#93F9B9"]} style={styles.container}>
-        <View>
-          <Image
-            source={require("./logo.png")}
-            style={{ height: 200, width: 200 }}
-          />
+      <ImageBackground
+        source={require("./background.png")}
+        style={styles.container}
+      >
+        <View
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "center"
+          }}
+        >
+          <Text style={styles.title}>SUSTAINIFY</Text>
         </View>
         <View>
           <Text>Tips</Text>
@@ -45,7 +51,7 @@ export default class componentName extends Component {
             <Icon name="search" style={styles.icon} />
           </Button>
         </View>
-      </LinearGradient>
+      </ImageBackground>
     </View>
   );
 
@@ -67,7 +73,12 @@ const styles = StyleSheet.create({
     alignItems: "flex-end",
     top: 20
   },
-
+  title: {
+    fontFamily: "AvenirNextCondensed-Medium",
+    color: "white",
+    fontSize: 70,
+    fontWeight: "600"
+  },
   button: {
     justifyContent: "center",
     backgroundColor: "#FFFFFF",
@@ -76,7 +87,7 @@ const styles = StyleSheet.create({
     borderRadius: 45
   },
   icon: {
-    color: "rgb(0, 146, 83)",
+    color: "#317151",
     fontSize: 70
   },
 

@@ -4151,6 +4151,10 @@ react-native-keyboard-aware-scroll-view@0.8.0:
 react-native-linear-gradient@^2.5.3:
   version "2.5.3"
   resolved "https://registry.yarnpkg.com/react-native-linear-gradient/-/react-native-linear-gradient-2.5.3.tgz#d90cf19a13fcccfa8bb32025ac40a15ae1b49e99"
+<<<<<<< HEAD
+=======
+  integrity sha512-XdusrOXXlkI+yQpUW7YLeiq9cZiBwkvQX4XEkHPVrJ9H47gsKmdgBwObkZBzBQUP0dKK/Sg6aVpETEis4w43bQ==
+>>>>>>> e9b41050ede45e200b8821a7a66733b40e79735b
 
 react-native-safe-area-view@^0.12.0:
   version "0.12.0"

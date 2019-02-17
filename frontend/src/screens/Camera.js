@@ -83,8 +83,7 @@ export default class Camera extends Component {
                         name="close"
                         style={{
                           color: "white",
-                          fontSize: 40,
-                          fontWeight: 900
+                          fontSize: 40
                         }}
                       />
                     </Button>
@@ -118,7 +117,7 @@ export default class Camera extends Component {
     if (this.camera) {
       const options = { quality: 0.5, base64: true };
       const data = await this.camera.takePictureAsync(options);
-      //console.log(data.base64);
+      console.log(data);
       this.passBlob(data);
     }
   };

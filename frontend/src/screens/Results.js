@@ -43,10 +43,13 @@ export default class Results extends Component {
     };
   }
   componentDidMount = () => {
+    console.log("KKKKKKK");
+
     axios({
       method: "get",
       url:
-        "https://api.mlab.com/api/1/databases/sustainify/collections/materials?apiKey=",
+        "https://api.mlab.com/api/1/databases/sustainify/collections/materials?apiKey=" +
+        apiKey,
       mode: "cors",
       headers: {
         "Access-Control-Allow-Origin": true,
@@ -55,7 +58,10 @@ export default class Results extends Component {
     })
       .then(response => {
         const materialArray = this.props.navigation.state.params.materials;
-        console.log("@@@@" + materialArray);
+        console.log("@@@@");
+
+        console.log(materialArray);
+
         let newMaterials = [];
         let descriptions = response.data;
         for (let i = 0; i < materialArray.length; i++) {
@@ -169,7 +175,7 @@ export default class Results extends Component {
                       <List>
                         {el.instructions.map((instruct, i) => {
                           return (
-                            <ListItem>
+                            <ListItem key={instruct + i}>
                               <Text>{i + 1 + ". " + instruct}</Text>
                             </ListItem>
                           );

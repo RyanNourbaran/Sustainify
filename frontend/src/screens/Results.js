@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Linking } from "react-native";
 import { apiKey } from "../assets/apiKey";
 
 import {
@@ -71,7 +71,6 @@ export default class Results extends Component {
           });
         }
         this.setState({ material: newMaterials });
-        this.getClosestBin();
       })
       .catch(error => {
         console.log(error);
@@ -117,10 +116,18 @@ export default class Results extends Component {
               }
             }
             console.log(minLoc);
+            const scheme = "maps:0,0?q=";
+
+            const latLng = `${minLoc.latitude},${minLoc.longitude}`;
+            const label = "Closest Recycle Bin";
+            const url = `${scheme}${label}@${latLng}`;
+
+            Linking.openURL(url);
           },
           err => {
             console.log(typeof err);
-          }
+          },
+          { enableHighAccuracy: true } || null
         );
       })
       .catch(err => console.log(typeof err));
@@ -222,24 +229,16 @@ export default class Results extends Component {
                     </Body>
                   </CardItem>
                 </Card>
-                {/* <View style={styles.title}>
-                  <Icon
-                    name={iconMap[obj.name] || "social-dropbox"}
-                    style={{
-                      color: "white",
-                      fontSize: 30
-                    }}
-                  />
-                  <Text style={styles.titleText}>{obj.name}</Text>
-                </View>
-                <View style={styles.instructions}>
-                  <Text style={styles.instructionsText}>
-                    {obj.instructions}
-                  </Text>
-                </View>*/}
               </View>
             );
           })}
+          <Button onPress={() => this.getClosestBin()}>
+            <Icon
+              type="Entypo"
+              name="location"
+              style={{ color: "red", fontSize: 25 }}
+            />
+          </Button>
         </View>
       </Container>
     );

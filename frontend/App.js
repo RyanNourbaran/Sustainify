@@ -23,7 +23,7 @@ const TabNavigator = createBottomTabNavigator(
           />
         )
       }
-    },
+    } /* ,
     "My Sustain": {
       screen: MySustain,
       navigationOptions: () => ({
@@ -34,7 +34,7 @@ const TabNavigator = createBottomTabNavigator(
           />
         )
       })
-    }
+    } */
   },
   {
     tabBarOptions: {
@@ -61,10 +61,8 @@ export default createAppContainer(
   createSwitchNavigator(
     {
       Tab: TabNavigator,
-      Main: Main,
       Camera: Camera,
-      Results,
-      MySustain: MySustain
+      Results: Results
     },
     {
       initialRouteName: "Tab"

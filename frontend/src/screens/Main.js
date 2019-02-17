@@ -12,26 +12,24 @@ export default class componentName extends Component {
     this.props.navigation.navigate("Camera");
   };
 
-  componentWillMount() {
-    this.image = (
-      <ImageBackground
-        style={styles.backgroundImage}
-        source={require("./tree.png")}
-      >
-        <View bottom style={styles.innerContainer}>
-          <Button onPress={this.camera} style={styles.button}>
-            <Icon name="camera" style={styles.icon} />
-          </Button>
-          <Button onPress={this.next} style={styles.button}>
-            <Icon name="search" style={styles.icon} />
-          </Button>
-        </View>
-      </ImageBackground>
-    );
-  }
+  giveImage = () => (
+    <ImageBackground
+      style={styles.backgroundImage}
+      source={require("./tree.png")}
+    >
+      <View bottom style={styles.innerContainer}>
+        <Button onPress={this.camera} style={styles.button}>
+          <Icon name="camera" style={styles.icon} />
+        </Button>
+        <Button onPress={this.next} style={styles.button}>
+          <Icon name="search" style={styles.icon} />
+        </Button>
+      </View>
+    </ImageBackground>
+  );
 
   render() {
-    return <View style={styles.container}>{this.image}</View>;
+    return <View style={styles.container}>{this.giveImage()}</View>;
   }
 }
 const styles = StyleSheet.create({

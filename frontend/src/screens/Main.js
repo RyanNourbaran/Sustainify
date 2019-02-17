@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Text, StyleSheet, Image, ImageBackground } from "react-native";
+import PropTypes from "prop-types";
 import {
   Buttonimport,
   Container,
@@ -11,7 +12,9 @@ import {
   Thumbnail,
   Left,
   Body,
-  Button
+  Button,
+  Item,
+  Input
 } from "native-base";
 import LinearGradient from "react-native-linear-gradient";
 import Icon from "react-native-vector-icons/EvilIcons";
@@ -38,7 +41,9 @@ export default class componentName extends Component {
   camera = () => {
     this.props.navigation.navigate("Camera");
   };
-
+  search = () => {
+    this.props.navigation.navigate("Search");
+  };
   giveImage = () => (
     <View style={{ flex: 1 }}>
       <ImageBackground

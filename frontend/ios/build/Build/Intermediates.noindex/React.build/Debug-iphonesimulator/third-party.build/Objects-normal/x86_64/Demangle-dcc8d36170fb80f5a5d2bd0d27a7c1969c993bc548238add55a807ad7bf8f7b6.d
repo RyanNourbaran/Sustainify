@@ -1,0 +1,24 @@
+dependencies: \
+  /Users/ryannourbaran/Documents/Code2/passion/suss/frontend/node_modules/react-native/third-party/folly-2018.10.22.00/folly/Demangle.cpp \
+  /Users/ryannourbaran/Documents/Code2/passion/suss/frontend/node_modules/react-native/third-party/folly-2018.10.22.00/folly/Demangle.h \
+  /Users/ryannourbaran/Documents/Code2/passion/suss/frontend/node_modules/react-native/third-party/folly-2018.10.22.00/folly/FBString.h \
+  /Users/ryannourbaran/Documents/Code2/passion/suss/frontend/node_modules/react-native/third-party/folly-2018.10.22.00/folly/CppAttributes.h \
+  /Users/ryannourbaran/Documents/Code2/passion/suss/frontend/node_modules/react-native/third-party/folly-2018.10.22.00/folly/Portability.h \
+  /Users/ryannourbaran/Documents/Code2/passion/suss/frontend/node_modules/react-native/third-party/folly-2018.10.22.00/folly/portability/Config.h \
+  /Users/ryannourbaran/Documents/Code2/passion/suss/frontend/node_modules/react-native/third-party/folly-2018.10.22.00/folly/CPortability.h \
+  /Users/ryannourbaran/Documents/Code2/passion/suss/frontend/node_modules/react-native/third-party/folly-2018.10.22.00/folly/Traits.h \
+  /Users/ryannourbaran/Documents/Code2/passion/suss/frontend/node_modules/react-native/third-party/folly-2018.10.22.00/folly/hash/Hash.h \
+  /Users/ryannourbaran/Documents/Code2/passion/suss/frontend/node_modules/react-native/third-party/folly-2018.10.22.00/folly/Utility.h \
+  /Users/ryannourbaran/Documents/Code2/passion/suss/frontend/node_modules/react-native/third-party/folly-2018.10.22.00/folly/functional/ApplyTuple.h \
+  /Users/ryannourbaran/Documents/Code2/passion/suss/frontend/node_modules/react-native/third-party/folly-2018.10.22.00/folly/functional/Invoke.h \
+  /Users/ryannourbaran/Documents/Code2/passion/suss/frontend/node_modules/react-native/third-party/folly-2018.10.22.00/folly/Preprocessor.h \
+  /Users/ryannourbaran/Documents/Code2/passion/suss/frontend/node_modules/react-native/third-party/folly-2018.10.22.00/folly/hash/SpookyHashV1.h \
+  /Users/ryannourbaran/Documents/Code2/passion/suss/frontend/node_modules/react-native/third-party/folly-2018.10.22.00/folly/hash/SpookyHashV2.h \
+  /Users/ryannourbaran/Documents/Code2/passion/suss/frontend/node_modules/react-native/third-party/folly-2018.10.22.00/folly/lang/Bits.h \
+  /Users/ryannourbaran/Documents/Code2/passion/suss/frontend/node_modules/react-native/third-party/folly-2018.10.22.00/folly/ConstexprMath.h \
+  /Users/ryannourbaran/Documents/Code2/passion/suss/frontend/node_modules/react-native/third-party/folly-2018.10.22.00/folly/lang/Assume.h \
+  /Users/ryannourbaran/Documents/Code2/passion/suss/frontend/node_modules/react-native/third-party/folly-2018.10.22.00/folly/portability/Builtins.h \
+  /Users/ryannourbaran/Documents/Code2/passion/suss/frontend/node_modules/react-native/third-party/folly-2018.10.22.00/folly/lang/Exception.h \
+  /Users/ryannourbaran/Documents/Code2/passion/suss/frontend/node_modules/react-native/third-party/folly-2018.10.22.00/folly/memory/Malloc.h \
+  /Users/ryannourbaran/Documents/Code2/passion/suss/frontend/node_modules/react-native/third-party/folly-2018.10.22.00/folly/memory/detail/MallocImpl.h \
+  /Users/ryannourbaran/Documents/Code2/passion/suss/frontend/node_modules/react-native/third-party/folly-2018.10.22.00/folly/detail/Demangle.h

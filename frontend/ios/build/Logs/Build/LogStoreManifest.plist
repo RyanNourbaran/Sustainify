@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>logFormatVersion</key>
+	<integer>9</integer>
+	<key>logs</key>
+	<dict>
+		<key>0E3C3383-D1BD-4F3B-B874-CEDB14EEE85F</key>
+		<dict>
+			<key>className</key>
+			<string>IDECommandLineBuildLog</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>0E3C3383-D1BD-4F3B-B874-CEDB14EEE85F.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>W</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>sustainify project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>sustainify</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Building project sustainify with scheme sustainify and configuration Debug</string>
+			<key>timeStartedRecording</key>
+			<real>572066385.90037501</real>
+			<key>timeStoppedRecording</key>
+			<real>572066410.28909695</real>
+			<key>title</key>
+			<string>Building project sustainify with scheme sustainify and configuration Debug</string>
+			<key>uniqueIdentifier</key>
+			<string>0E3C3383-D1BD-4F3B-B874-CEDB14EEE85F</string>
+		</dict>
+		<key>FA30777C-CBD6-40CE-989A-1FFA76214836</key>
+		<dict>
+			<key>className</key>
+			<string>IDECommandLineBuildLog</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>FA30777C-CBD6-40CE-989A-1FFA76214836.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>W</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>sustainify project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>sustainify</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Building project sustainify with scheme sustainify and configuration Debug</string>
+			<key>timeStartedRecording</key>
+			<real>572071069.006603</real>
+			<key>timeStoppedRecording</key>
+			<real>572071215.59970295</real>
+			<key>title</key>
+			<string>Building project sustainify with scheme sustainify and configuration Debug</string>
+			<key>uniqueIdentifier</key>
+			<string>FA30777C-CBD6-40CE-989A-1FFA76214836</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

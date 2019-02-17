@@ -1,6 +1,19 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet, Image, ImageBackground } from "react-native";
-import { Button } from "native-base";
+import { Text, StyleSheet, Image } from "react-native";
+import {
+  Buttonimport,
+  Container,
+  Header,
+  View,
+  DeckSwiper,
+  Card,
+  CardItem,
+  Thumbnail,
+  Left,
+  Body,
+  Button
+} from "native-base";
+import LinearGradient from "react-native-linear-gradient";
 import Icon from "react-native-vector-icons/EvilIcons";
 
 export default class componentName extends Component {
@@ -13,19 +26,27 @@ export default class componentName extends Component {
   };
 
   giveImage = () => (
-    <ImageBackground
-      style={styles.backgroundImage}
-      source={require("./tree.png")}
-    >
-      <View bottom style={styles.innerContainer}>
-        <Button onPress={this.camera} style={styles.button}>
-          <Icon name="camera" style={styles.icon} />
-        </Button>
-        <Button onPress={this.next} style={styles.button}>
-          <Icon name="search" style={styles.icon} />
-        </Button>
-      </View>
-    </ImageBackground>
+    <View style={{ flex: 1 }}>
+      <LinearGradient colors={["#1D976C", "#93F9B9"]} style={styles.container}>
+        <View>
+          <Image
+            source={require("./logo.png")}
+            style={{ height: 200, width: 200 }}
+          />
+        </View>
+        <View>
+          <Text>Tips</Text>
+        </View>
+        <View style={styles.innerContainer}>
+          <Button onPress={this.camera} style={styles.button}>
+            <Icon name="camera" style={styles.icon} />
+          </Button>
+          <Button onPress={this.next} style={styles.button}>
+            <Icon name="search" style={styles.icon} />
+          </Button>
+        </View>
+      </LinearGradient>
+    </View>
   );
 
   render() {
@@ -35,24 +56,16 @@ export default class componentName extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: "row",
-    alignContent: "flex-end"
+    flexDirection: "column",
+    justifyContent: "space-evenly"
   },
 
-  backgroundImage: {
-    height: "110%",
-    width: "100%",
-
-    backgroundColor: "rgba(0, 146, 83,0.65)"
-  },
   innerContainer: {
-    height: "100%",
-    width: "100%",
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-evenly",
-    alignItems: "center",
-    backgroundColor: "rgba(0, 146, 83,0.65)"
+    alignItems: "flex-end",
+    top: 20
   },
 
   button: {

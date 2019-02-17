@@ -61,6 +61,7 @@
 		ED2971652150620600B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED2971642150620600B7C4FE /* JavaScriptCore.framework */; };
 		F622882C296548EFB7877DA5 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0533910568624167813BA267 /* MaterialCommunityIcons.ttf */; };
 		FF9663EC014446659149C231 /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F45ACAA0CB7F45EEB2193264 /* AntDesign.ttf */; };
+		F6792309272F4A9D87A82E8B /* libBVLinearGradient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3C4AE8ECB7F47919102ADDE /* libBVLinearGradient.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -419,7 +420,12 @@
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		F45ACAA0CB7F45EEB2193264 /* AntDesign.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = AntDesign.ttf; path = "../node_modules/native-base/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		F63072EE66D141B69095C30F /* libBVLinearGradient.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libBVLinearGradient.a; sourceTree = "<group>"; };
+=======
+		0098C3D6C80C41F5A150B760 /* BVLinearGradient.xcodeproj */ = {isa = PBXFileReference; name = "BVLinearGradient.xcodeproj"; path = "../node_modules/react-native-linear-gradient/BVLinearGradient.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		C3C4AE8ECB7F47919102ADDE /* libBVLinearGradient.a */ = {isa = PBXFileReference; name = "libBVLinearGradient.a"; path = "libBVLinearGradient.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+>>>>>>> 67fef9a052478155d84a33b192b1d6cb08a87fc8
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -450,7 +456,11 @@
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				3AD0E008798748119CB56F38 /* libRNCamera.a in Frameworks */,
 				9C32EDF4B6B648CE9A3B3BBF /* libRNGestureHandler.a in Frameworks */,
+<<<<<<< HEAD
 				0949223660A2490087402494 /* libBVLinearGradient.a in Frameworks */,
+=======
+				F6792309272F4A9D87A82E8B /* libBVLinearGradient.a in Frameworks */,
+>>>>>>> 67fef9a052478155d84a33b192b1d6cb08a87fc8
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -667,7 +677,11 @@
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				27E6C53C185C4BCDBD309690 /* RNCamera.xcodeproj */,
 				10F0115C53C8473B9F96309E /* RNGestureHandler.xcodeproj */,
+<<<<<<< HEAD
 				D5EC702840024FCD9A285016 /* BVLinearGradient.xcodeproj */,
+=======
+				0098C3D6C80C41F5A150B760 /* BVLinearGradient.xcodeproj */,
+>>>>>>> 67fef9a052478155d84a33b192b1d6cb08a87fc8
 			);
 			name = Libraries;
 			sourceTree = "<group>";

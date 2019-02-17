@@ -1,9 +1,20 @@
 import React, { Component } from "react";
-import { Text, View, StyleSheet } from "react-native";
+import { View, StyleSheet } from "react-native";
 import { apiKey } from "../assets/apiKey";
 import { Button } from "native-base";
+import LinearGradient from "react-native-linear-gradient";
 
-import Icon from "react-native-vector-icons/FontAwesome5";
+import {
+  Container,
+  Header,
+  Content,
+  Card,
+  CardItem,
+  Text,
+  Body,
+  Icon
+} from "native-base";
+//import Icon from "react-native-vector-icons/FontAwesome5";
 import axios from "axios";
 
 export default class Results extends Component {
@@ -62,42 +73,73 @@ export default class Results extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.header}>Identified Materials</Text>
-        {this.state.material.map((obj, i) => {
-          console.log(iconMap, obj.name, iconMap[obj.name]);
-          return (
-            <View style={styles.itemContainer} key={obj.name + i}>
-              <View style={styles.title}>
-                <Icon
-                  name={iconMap[obj.name] || "social-dropbox"}
-                  style={{
-                    color: "white",
-                    fontSize: 30
-                  }}
-                />
-                <Text style={styles.titleText}>{obj.name}</Text>
-              </View>
-
-              <View style={styles.instructions}>
-                <Text style={styles.instructionsText}>{obj.instructions}</Text>
-              </View>
-            </View>
-          );
-        })}
-
-        <Button
-          onPress={() => this.props.navigation.navigate("Tab")}
-          style={styles.button}
+      <View style={{ flex: 1 }}>
+        <LinearGradient
+          colors={["#56ab2f", "#a8e063"]}
+          start={{ x: 0, y: 1 }}
+          end={{ x: 1, y: 0 }}
+          style={styles.container}
         >
-          <Icon name="home" style={styles.icon} />
-        </Button>
-        <Button
-          onPress={() => this.props.navigation.navigate("Camera")}
-          style={styles.button}
-        >
-          <Icon name="camera" style={styles.icon} />
-        </Button>
+          <Text style={styles.header}>Identified Materials</Text>
+
+          {this.state.material.map((obj, i) => {
+            console.log(iconMap, obj.name, iconMap[obj.name]);
+            return (
+              <View style={styles.itemContainer} key={obj.name + i}>
+                <Card>
+                  <CardItem header bordered>
+                    <Icon
+                      type="FontAwesome5"
+                      name={iconMap[obj.name] || "social-dropbox"}
+                      style={{
+                        color: "green",
+                        fontSize: 30
+                      }}
+                    />
+                    <Text>{obj.name}</Text>
+                  </CardItem>
+                  <CardItem bordered>
+                    <Body>
+                      <Text>{obj.instructions}</Text>
+                    </Body>
+                  </CardItem>
+                  <CardItem footer bordered>
+                    <Text>GeekyAnts</Text>
+                  </CardItem>
+                </Card>
+                {/* <View style={styles.title}>
+                  <Icon
+                    name={iconMap[obj.name] || "social-dropbox"}
+                    style={{
+                      color: "white",
+                      fontSize: 30
+                    }}
+                  />
+                  <Text style={styles.titleText}>{obj.name}</Text>
+                </View>
+                <View style={styles.instructions}>
+                  <Text style={styles.instructionsText}>
+                    {obj.instructions}
+                  </Text>
+                </View>*/}
+              </View>
+            );
+          })}
+          <View style={styles.navButtons}>
+            <Button
+              onPress={() => this.props.navigation.navigate("Tab")}
+              style={styles.button}
+            >
+              <Icon name="home" style={styles.icon} />
+            </Button>
+            <Button
+              onPress={() => this.props.navigation.navigate("Camera")}
+              style={styles.button}
+            >
+              <Icon name="camera" style={styles.icon} />
+            </Button>
+          </View>
+        </LinearGradient>
       </View>
     );
   }
@@ -110,15 +152,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "linear-gradient(to right, #56ab2f, #a8e063)"
+    justifyContent: "space-between",
+    alignItems: "center"
   },
   header: {
     fontSize: 40,
     fontWeight: "500",
-    position: "absolute",
-    top: 15
+    justifyContent: "center",
+    margin: 15
   },
   itemContainer: {
     width: "100%",
@@ -133,21 +174,21 @@ const styles = StyleSheet.create({
   },
   titleText: {
     fontSize: 30,
-    padding: 10
+    padding: 5
   },
   instructions: {
     width: "100%",
-    padding: 10,
     backgroundColor: "white"
   },
   instructionsText: {
-    fontSize: 18
+    padding: 15,
+    fontSize: 20
   },
   navButtons: {
     flex: 1,
     flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "stretch"
+    justifyContent: "space-around",
+    alignSelf: "stretch"
   },
   button: {
     justifyContent: "center",

@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "linear-gradient(to right, #56ab2f, #a8e063)"
+    backgroundColor: "yellow"
   },
   header: {
     fontSize: 40,

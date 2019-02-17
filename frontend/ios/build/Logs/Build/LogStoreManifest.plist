@@ -35,7 +35,7 @@
 			<key>uniqueIdentifier</key>
 			<string>0E3C3383-D1BD-4F3B-B874-CEDB14EEE85F</string>
 		</dict>
-		<key>3BBB45C3-E6CB-4462-B902-48553B28098F</key>
+		<key>FA30777C-CBD6-40CE-989A-1FFA76214836</key>
 		<dict>
 			<key>className</key>
 			<string>IDECommandLineBuildLog</string>
@@ -44,7 +44,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
 			<key>fileName</key>
-			<string>3BBB45C3-E6CB-4462-B902-48553B28098F.xcactivitylog</string>
+			<string>FA30777C-CBD6-40CE-989A-1FFA76214836.xcactivitylog</string>
 			<key>highLevelStatus</key>
 			<string>W</string>
 			<key>schemeIdentifier-containerName</key>
@@ -56,13 +56,13 @@
 			<key>signature</key>
 			<string>Building project sustainify with scheme sustainify and configuration Debug</string>
 			<key>timeStartedRecording</key>
-			<real>572065796.72729897</real>
+			<real>572071069.006603</real>
 			<key>timeStoppedRecording</key>
-			<real>572066097.06997204</real>
+			<real>572071215.59970295</real>
 			<key>title</key>
 			<string>Building project sustainify with scheme sustainify and configuration Debug</string>
 			<key>uniqueIdentifier</key>
-			<string>3BBB45C3-E6CB-4462-B902-48553B28098F</string>
+			<string>FA30777C-CBD6-40CE-989A-1FFA76214836</string>
 		</dict>
 	</dict>
 </dict>

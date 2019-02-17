@@ -16,11 +16,25 @@ import {
 import LinearGradient from "react-native-linear-gradient";
 import Icon from "react-native-vector-icons/EvilIcons";
 
+const cards = [
+  {
+    text: "Card One",
+    name: "One",
+    image: require("./logo.png")
+  },
+  {
+    text: "Card 2",
+    name: "One",
+    image: require("./logo.png")
+  }
+];
+
 export default class componentName extends Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
+
   camera = () => {
     this.props.navigation.navigate("Camera");
   };
@@ -43,13 +57,48 @@ export default class componentName extends Component {
         <View>
           <Text>Tips</Text>
         </View>
+        <View>
+          <DeckSwiper
+            dataSource={cards}
+            renderItem={item => (
+              <Card style={{ elevation: 3 }}>
+                <CardItem>
+                  <Left>
+                    <Thumbnail source={item.image} />
+                    <Body>
+                      <Text>{item.text}</Text>
+                      <Text note>NativeBase</Text>
+                    </Body>
+                  </Left>
+                </CardItem>
+                <CardItem cardBody>
+                  <Image style={{ height: 300, flex: 1 }} source={item.image} />
+                </CardItem>
+                <CardItem>
+                  <Icon name="heart" style={{ color: "#ED4A6A" }} />
+                  <Text>{item.name}</Text>
+                </CardItem>
+              </Card>
+            )}
+          />
+        </View>
         <View style={styles.innerContainer}>
-          <Button onPress={this.camera} style={styles.button}>
-            <Icon name="camera" style={styles.icon} />
-          </Button>
-          <Button onPress={this.next} style={styles.button}>
-            <Icon name="search" style={styles.icon} />
-          </Button>
+          <View>
+            <Button onPress={this.camera} style={styles.button}>
+              <Icon name="camera" style={styles.icon} />
+            </Button>
+            <Text style={{ textAlign: "center", padding: 15, color: "white" }}>
+              Camera
+            </Text>
+          </View>
+          <View>
+            <Button onPress={this.next} style={styles.button}>
+              <Icon name="search" style={styles.icon} />
+            </Button>
+            <Text style={{ textAlign: "center", padding: 15, color: "white" }}>
+              Search
+            </Text>
+          </View>
         </View>
       </ImageBackground>
     </View>
@@ -71,13 +120,14 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-evenly",
     alignItems: "flex-end",
-    top: 20
+    top: 50
   },
   title: {
     fontFamily: "AvenirNextCondensed-Medium",
     color: "white",
     fontSize: 70,
-    fontWeight: "600"
+    fontWeight: "600",
+    bottom: 30
   },
   button: {
     justifyContent: "center",

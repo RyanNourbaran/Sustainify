@@ -15,7 +15,9 @@ import {
   Left,
   Right,
   List,
-  ListItem
+  ListItem,
+  Footer,
+  FooterTab
 } from "native-base";
 //import Icon from "react-native-vector-icons/FontAwesome5";
 import axios from "axios";
@@ -76,6 +78,8 @@ export default class Results extends Component {
       });
   };
   getClosestBin = () => {
+    console.log("here1");
+
     axios({
       method: "get",
       url: "https://data.cityofnewyork.us/resource/sxx4-xhzg.json",
@@ -89,9 +93,12 @@ export default class Results extends Component {
         navigator.geolocation.setRNConfiguration({
           skipPermissionRequests: false
         });
-
+        console.log("here2");
+        navigator.geolocation.requestAuthorization();
         navigator.geolocation.getCurrentPosition(
           data => {
+            console.log("here3");
+
             let min = Number.MAX_SAFE_INTEGER;
             let minLoc = {};
             for (let i = 0; i < res.data.length; i++) {
@@ -124,9 +131,9 @@ export default class Results extends Component {
             Linking.openURL(url);
           },
           err => {
-            console.log(typeof err);
+            console.log(err);
           },
-          { enableHighAccuracy: true } || null
+          { enableHighAccuracy: true, timeout: 20000 }
         );
       })
       .catch(err => console.log(typeof err));
@@ -231,13 +238,57 @@ export default class Results extends Component {
               </View>
             );
           })}
-          <Button onPress={() => this.getClosestBin()}>
-            <Icon
-              type="Entypo"
-              name="location"
-              style={{ color: "red", fontSize: 25 }}
-            />
-          </Button>
+
+          <Footer
+            style={{
+              position: "absolute",
+              bottom: 0,
+              height: 60,
+              paddingLeft: 63,
+              paddingRight: 0,
+              width: "100%",
+              shadowOffset: { height: 1 },
+              shadowColor: "#6a6a6a",
+              shadowOpacity: 0.6
+            }}
+          >
+            <Text
+              style={{
+                fontFamily: "System",
+                fontSize: 20,
+                fontWeight: "400",
+                width: "100%",
+                color: "#262730",
+                textAlign: "center",
+                alignSelf: "center",
+                paddingRight: 0,
+                paddingLeft: 63
+              }}
+            >
+              Find closest Recycle Bin
+            </Text>
+
+            <Button
+              pronPress={() => this.getClosestBin()}
+              style={{
+                backgroundColor: "white",
+                height: 60,
+                width: 60,
+                borderRadius: 30,
+                bottom: 80,
+                marginRight: 80,
+                shadowOffset: { height: 2, width: 2 },
+                shadowColor: "#6a6a6a",
+                shadowOpacity: 0.6
+              }}
+            >
+              <Icon
+                type="FontAwesome5"
+                name="location-arrow"
+                style={{ color: "#4285F4", fontSize: 27 }}
+              />
+            </Button>
+          </Footer>
         </View>
       </Container>
     );

@@ -65,7 +65,7 @@ export default createAppContainer(
       Results: Results
     },
     {
-      initialRouteName: "Tab"
+      initialRouteName: "Results"
     }
   )
 );

@@ -35,8 +35,19 @@ export default class MySustain extends Component {
               <Text style={styles.info}>New York, New York, USA</Text>
               <ListItem style={styles.listItems} icon>
                 <Left>
-                  <Button style={{ width: 40, backgroundColor: "#FF9501" }}>
-                    <Icon active type="Foundation" name="lightbulb" />
+                  <Button
+                    style={{
+                      width: 50,
+                      height: 60,
+                      backgroundColor: "#FF9501"
+                    }}
+                  >
+                    <Icon
+                      active
+                      style={{ fontSize: 40 }}
+                      type="Foundation"
+                      name="lightbulb"
+                    />
                   </Button>
                 </Left>
                 <Body>
@@ -48,8 +59,15 @@ export default class MySustain extends Component {
               </ListItem>
               <ListItem style={styles.listItems} icon>
                 <Left>
-                  <Button style={{ width: 40, backgroundColor: "grey" }}>
-                    <Icon active type="FontAwesome5" name="city" />
+                  <Button
+                    style={{ width: 50, height: 60, backgroundColor: "grey" }}
+                  >
+                    <Icon
+                      active
+                      style={{ fontSize: 30 }}
+                      type="FontAwesome5"
+                      name="city"
+                    />
                   </Button>
                 </Left>
                 <Body>
@@ -61,8 +79,15 @@ export default class MySustain extends Component {
               </ListItem>
               <ListItem style={styles.listItems} icon>
                 <Left>
-                  <Button style={{ width: 40, backgroundColor: "blue" }}>
-                    <Icon active type="Ionicons" name="ios-water" />
+                  <Button
+                    style={{ width: 50, height: 60, backgroundColor: "blue" }}
+                  >
+                    <Icon
+                      active
+                      style={{ fontSize: 40 }}
+                      type="Ionicons"
+                      name="ios-water"
+                    />
                   </Button>
                 </Left>
                 <Body style={styles.bodyText}>
@@ -75,29 +100,34 @@ export default class MySustain extends Component {
               <View style={{ flexDirection: "row", alignSelf: "center" }}>
                 <Icon
                   active
-                  style={{ color: "gold" }}
-                  type="AntDesign"
+                  style={{ fontSize: 50, color: "gold" }}
+                  type="FontAwesome"
                   name="star"
                 />
                 <Icon
                   active
-                  style={{ color: "gold" }}
-                  type="AntDesign"
+                  style={{ fontSize: 50, color: "gold" }}
+                  type="FontAwesome"
                   name="star"
                 />
                 <Icon
                   active
-                  style={{ color: "gold" }}
-                  type="AntDesign"
+                  style={{ fontSize: 50, color: "gold" }}
+                  type="FontAwesome"
                   name="star"
                 />
                 <Icon
                   active
-                  style={{ color: "gold" }}
-                  type="AntDesign"
+                  style={{ fontSize: 50, color: "gold" }}
+                  type="FontAwesome"
                   name="star"
                 />
-                <Icon active type="AntDesign" name="staro" />
+                <Icon
+                  active
+                  style={{ fontSize: 50, color: "gold" }}
+                  type="FontAwesome"
+                  name="star-o"
+                />
               </View>
             </View>
           </View>

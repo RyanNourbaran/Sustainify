@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { View, StyleSheet } from "react-native";
 import { apiKey } from "../assets/apiKey";
-import LinearGradient from "react-native-linear-gradient";
 
 import {
   Container,
@@ -88,7 +87,7 @@ export default class Results extends Component {
 
   render() {
     return (
-      <Container>
+      <Container style={{ backgroundColor: "#efefe7" }}>
         <Header style={{ backgroundColor: "#198e63" }}>
           <Left>
             <Button

@@ -1,6 +1,18 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet, Image, ImageBackground } from "react-native";
-import { Button } from "native-base";
+import {
+  Buttonimport,
+  Container,
+  Header,
+  View,
+  DeckSwiper,
+  Card,
+  CardItem,
+  Thumbnail,
+  Text,
+  Left,
+  Body
+} from "native-base";
 import Icon from "react-native-vector-icons/EvilIcons";
 
 export default class componentName extends Component {
@@ -18,6 +30,11 @@ export default class componentName extends Component {
       source={require("./tree.png")}
     >
       <View bottom style={styles.innerContainer}>
+        <Image
+          source={require("./logo.png")}
+          style={{ height: 200, width: 200 }}
+        />
+
         <Button onPress={this.camera} style={styles.button}>
           <Icon name="camera" style={styles.icon} />
         </Button>

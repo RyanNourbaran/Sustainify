@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Text, View, StyleSheet } from "react-native";
-import { apiKey } from "../assets/apiKey";
 import axios from "axios";
 
 export default class Results extends Component {
@@ -17,8 +16,7 @@ export default class Results extends Component {
     axios({
       method: "get",
       url:
-        "https://api.mlab.com/api/1/databases/sustainify/collections/materials?apiKey=" +
-        apiKey,
+        "https://api.mlab.com/api/1/databases/sustainify/collections/materials?apiKey=",
       mode: "cors",
       headers: {
         "Access-Control-Allow-Origin": true,

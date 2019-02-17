@@ -4,7 +4,8 @@ import {
   StatusBar,
   View,
   TouchableOpacity,
-  Text
+  Text,
+  Alert
 } from "react-native";
 import { RNCamera } from "react-native-camera";
 import { Header, Button, Left, Right, Content } from "native-base";
@@ -32,7 +33,8 @@ export default class Camera extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      inactive: true
+      inactive: true,
+      alert: false
     };
   }
 
@@ -129,7 +131,6 @@ export default class Camera extends Component {
 
   passBlob(blob) {
     console.log("blobby");
-    console.log(blob);
     const materials = [];
     const formData = new FormData();
     formData.append("image", {
@@ -139,7 +140,7 @@ export default class Camera extends Component {
     });
     axios({
       method: "post",
-      url: "http://sustainify1.appspot.com/classify",
+      url: "http://sustainify.azurewebsites.net/classify",
       mode: "cors",
       headers: {
         "Access-Control-Allow-Origin": true,
@@ -157,17 +158,26 @@ export default class Camera extends Component {
             materials.push(item.tagName);
           }
         }
-        console.log(materials);
+        //if (materials.length > 0) {
         this.props.navigation.navigate("Results", { materials });
+        //} else {
+        //  this.setState({ alert: true });
+        //}
       })
       .catch(error => {
         console.log(error);
       });
-    console.log("end");
+
+    console.log("finished blobby");
   }
 
   render() {
     this.takePicture();
+    /* if (this.state.alert) {
+      Alert.alert("Item not found", "Please Try Again.", [
+        { text: "OK", onPress: () => this.setState({ alert: false }) }
+      ]);
+    } */
     return this.renderCamera();
   }
 }

@@ -7,16 +7,13 @@ export default class Results extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      material: [
-        { name: "plastic", descript: "descript" },
-        { name: "cupcakes", descript: "descript" }
-      ]
+      material: []
     };
   }
-  getData() {
-    console.log(this.state.material);
-
+  componentDidMount = () => {
     const materialArray = this.props.navigation.state.params.materials;
+    console.log(materialArray);
+
     axios({
       method: "get",
       url:
@@ -29,25 +26,46 @@ export default class Results extends Component {
       }
     })
       .then(response => {
-        console.log(response.data);
-        descriptions = response.data[0];
+        let newMaterials = [];
+        descriptions = response.data;
         for (let i = 0; i < materialArray.length; i++) {
-          let x = materialArray[i];
-          console.log(descriptions[x]);
+          descriptions.forEach(obj => {
+            console.log(obj.name.toLowerCase(), materialArray[i].name);
+
+            if (
+              obj.name.toLowerCase() === materialArray[i].name.toLowerCase()
+            ) {
+              console.log(obj.instructions);
+              newMaterials.push({
+                name: obj.name,
+                instructions: obj.instructions
+              });
+            }
+          });
         }
+        this.setState({ material: newMaterials });
+        console.log(newMaterials);
       })
       .catch(error => {
         console.log(error);
       });
-  }
+  };
 
   render() {
-    this.getData();
-    console.log(this.state.material);
     return (
       <View style={styles.container}>
         {this.state.material.map((obj, i) => {
-          <Text>{obj.name}</Text>;
+          return (
+            <View style={styles.title} key={obj.name + i}>
+              <View>
+                <Text styles={styles.titleText}>{obj.name}</Text>
+              </View>
+
+              <View style={styles.instructions}>
+                <Text styles={styles.instructionsText}>{obj.instructions}</Text>
+              </View>
+            </View>
+          );
         })}
       </View>
     );
@@ -57,8 +75,25 @@ export default class Results extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: "row",
-    alignContent: "flex-end",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "yellow"
+  },
+  title: {
+    width: "100%",
+    padding: 10,
+    backgroundColor: "blue"
+  },
+  titleText: {
+    fontSize: 30
+  },
+  instructions: {
+    width: "100%",
+    padding: 10,
     backgroundColor: "white"
+  },
+  instructionsText: {
+    fontSize: 18
   }
 });

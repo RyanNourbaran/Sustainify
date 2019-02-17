@@ -23,7 +23,7 @@ const TabNavigator = createBottomTabNavigator(
           />
         )
       }
-    } /* ,
+    },
     "My Sustain": {
       screen: MySustain,
       navigationOptions: () => ({
@@ -34,7 +34,7 @@ const TabNavigator = createBottomTabNavigator(
           />
         )
       })
-    } */
+    }
   },
   {
     tabBarOptions: {

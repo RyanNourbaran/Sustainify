@@ -21,13 +21,25 @@ import Icon from "react-native-vector-icons/EvilIcons";
 
 const cards = [
   {
-    text: "Card One",
+    text: "Tip 1",
     name: "One",
-    image: require("./tip.png")
+    image: require("./tip.png"),
+    body:
+      "Recycled tires can be made into fuel, rubberized asphalt, construction materials and more."
   },
   {
-    text: "Card 2",
-    name: "One"
+    text: "Tip 2",
+    name: "Two",
+    image: require("./tip.png"),
+    body:
+      "Recyclable material must not have any food or drink residue on them, as it could contaminate other recyclable material."
+  },
+  {
+    text: "Tip 3",
+    name: "Three",
+    image: require("./tip.png"),
+    body:
+      "Each ton of recycled paper can save 17 trees, 380 gallons of oil, three cubic yards of landfill space, 4,000 kilowatts of energy and 7,000 gallons of water! "
   }
 ];
 
@@ -88,16 +100,13 @@ export default class componentName extends Component {
                         fontWeight: "600"
                       }}
                     >
-                      Tip
+                      {item.text}
                     </Text>
                   </Left>
                 </CardItem>
                 <CardItem>
                   <Body>
-                    <Text style={{ fontSize: 18 }}>
-                      Recycled tires can be made into fuel, rubberized asphalt,
-                      construction materials and more
-                    </Text>
+                    <Text style={{ fontSize: 18 }}>{item.body}</Text>
                   </Body>
                 </CardItem>
               </Card>

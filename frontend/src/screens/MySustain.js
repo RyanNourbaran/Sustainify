@@ -189,7 +189,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#00BFFF"
   },
   bodyText: {
-    fontSize: 24,
+    fontSize: 20,
     flexWrap: "wrap",
     color: "#efefe7"
   },

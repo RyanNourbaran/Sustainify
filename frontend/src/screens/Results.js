@@ -27,20 +27,7 @@ export default class Results extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      material: [
-        {
-          name: "Coffee Cup",
-          type: "Garbage Bin",
-          instructions: [
-            "Place item in the Garbage Bin.\n \nNote: Some disposable coffee cups come with an internal plastic lining that makes them non-recyclable."
-          ]
-        },
-        {
-          name: "Coffee Lid",
-          type: "Recycle Bin",
-          instructions: ["Dispose this item in the Recycle Bin."]
-        }
-      ]
+      material: []
     };
   }
   componentDidMount = () => {

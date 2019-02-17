@@ -139,7 +139,7 @@ export default class Camera extends Component {
     });
     axios({
       method: "post",
-      url: "http://sustainify1.appspot.com/classify", //"http://sustainify.azurewebsites.net/classify",
+      url: "http://sustainify.azurewebsites.net/classify",
       mode: "cors",
       headers: {
         "Access-Control-Allow-Origin": true,

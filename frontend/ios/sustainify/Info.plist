@@ -39,8 +39,14 @@
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>Your message to user when the camera is accessed for the first time</string>	
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>some string</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string>some string</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>some string</string>
+	<key>NSLocationUsageDescription</key>
+	<string>some string</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>AntDesign.ttf</string>

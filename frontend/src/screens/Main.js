@@ -97,7 +97,7 @@ export default class componentName extends Component {
             </Text>
           </View>
           <View>
-            <Button onPress={this.next} style={styles.button}>
+            <Button onPress={this.search} style={styles.button}>
               <Icon name="search" style={styles.icon} />
             </Button>
             <Text style={{ textAlign: "center", padding: 15, color: "white" }}>

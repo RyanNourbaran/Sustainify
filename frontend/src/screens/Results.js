@@ -77,7 +77,7 @@ export default class Results extends Component {
         console.log(error);
       });
   };
-  getClosestBin = () => {
+  getClosestBin() {
     console.log("here1");
 
     axios({
@@ -94,7 +94,6 @@ export default class Results extends Component {
           skipPermissionRequests: false
         });
         console.log("here2");
-        navigator.geolocation.requestAuthorization();
         navigator.geolocation.getCurrentPosition(
           data => {
             console.log("here3");
@@ -138,11 +137,11 @@ export default class Results extends Component {
           err => {
             console.log(err);
           },
-          { enableHighAccuracy: true, timeout: 20000 }
+          { enableHighAccuracy: true, timeout: 200000 }
         );
       })
       .catch(err => console.log(typeof err));
-  };
+  }
   render() {
     return (
       <Container style={{ backgroundColor: "#efefe7" }}>
@@ -274,7 +273,7 @@ export default class Results extends Component {
             </Text>
 
             <Button
-              pronPress={() => this.getClosestBin()}
+              onPress={() => this.getClosestBin()}
               style={{
                 backgroundColor: "white",
                 height: 60,

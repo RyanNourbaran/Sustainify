@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Platform, StyleSheet, Text, View } from "react-native";
 import { Icon } from "native-base";
+import PropTypes from "prop-types";
 import {
   createSwitchNavigator,
   createAppContainer,
@@ -10,6 +11,7 @@ import Camera from "./src/screens/Camera";
 import Main from "./src/screens/Main";
 import MySustain from "./src/screens/MySustain";
 import Results from "./src/screens/Results";
+import SearchScreen from "./src/screens/SearchScreen";
 
 const TabNavigator = createBottomTabNavigator(
   {
@@ -61,6 +63,7 @@ export default createAppContainer(
   createSwitchNavigator(
     {
       Tab: TabNavigator,
+      Search: SearchScreen,
       Camera: Camera,
       Results: Results
     },

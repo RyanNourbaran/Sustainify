@@ -119,8 +119,13 @@ export default class Results extends Component {
             const scheme = "maps:0,0?q=";
 
             const latLng = `${minLoc.latitude},${minLoc.longitude}`;
-            const label = "Closest Recycle Bin";
-            const url = `${scheme}${label}@${latLng}`;
+            const label = "Closest Recycling Bin";
+            const url =
+              "maps:0,0?q=" +
+              "Closest Recycling Bin@" +
+              minLoc.latitude +
+              "," +
+              minLoc.longitude;
 
             Linking.openURL(url);
           },

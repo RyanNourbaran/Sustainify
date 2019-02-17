@@ -12,9 +12,12 @@
     "native-base": "^2.11.0",
     "react": "16.6.3",
     "react-native": "0.58.4",
+    "react-native-atoz-listview": "^0.0.7",
     "react-native-camera": "^1.10.2",
     "react-native-gesture-handler": "^1.0.15",
     "react-native-linear-gradient": "^2.5.3",
+    "react-native-search-box": "^0.0.19",
+    "react-native-searchbar": "^1.15.0",
     "react-navigation": "^3.2.1",
     "react-navigator": "^0.0.0-0"
   },

@@ -3,7 +3,6 @@ import { Text, View, TouchableOpacity } from "react-native";
 import SearchBar from "react-native-searchbar";
 
 const items = [
-  "plastic",
   "aluminium",
   "coffee cups",
   "coffee cup lid",
@@ -14,7 +13,8 @@ const items = [
   "ceramic",
   "magazines",
   "paper towels",
-  "tape & tape dispensers"
+  "tape & tape dispensers",
+  "plastic bottles"
 ];
 
 export default class SearchScreen extends Component {
